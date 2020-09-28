@@ -5,7 +5,7 @@
         <div class="good-img">
           <a>
             <img
-              :src="goods.productImageBig"
+              v-lazy="goods.productImageBig"
               alt
             >
           </a>
@@ -51,7 +51,10 @@ export default {
     productDetail(id) {
       // 编程式导航
       this.$router.push({
-        path: `goodsDetail?productId=${id}`,
+        name: "goodsDetail",
+        query: {
+          productId: id,
+        },
       });
     },
     addCart(id, price, name, img) {

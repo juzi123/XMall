@@ -6,11 +6,25 @@ import './plugins/element.js'
 
 Vue.config.productionTip = false
 
+// 使用vue-lazylocad
+import VueLazyload from 'vue-lazyload';
+Vue.use(VueLazyload);
+
+Vue.use(VueLazyload, {
+  preLoad: 1.3,
+  error: 'static/images/error.png',
+  loading: 'static/images/load.gif',
+  attempt: 1
+})
 import {
   getStore
 } from '@/utils/storage'
 import axios from 'axios';
 Vue.prototype.$http = axios;
+
+// 设置公共的url
+axios.defaults.baseURL = 'http://localhost:3000';
+
 axios.interceptors.request.use(config => {
   const token = getStore('token');
   if (token) {
