@@ -18,3 +18,16 @@ yarn build
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 "# XMall" 
+
+## Server
+```
+cd server
+```
+
+```
+yarn install
+```
+
+```
+node app.js
+```
