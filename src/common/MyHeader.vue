@@ -1,6 +1,5 @@
 <template>
   <div class="header-box">
-    <!-- mjj1015481875 -->
     <div>
       <header class="w">
         <div class="w-box">
@@ -110,7 +109,6 @@
                                       <h4>
                                         <a href>{{goods.productName}}</a>
                                       </h4>
-                                      <!-- <p class="attrs"><span>白色</span></p> -->
                                       <h6>
                                         <span class="price-icon">¥</span>
                                         <span class="price-num">{{goods.salePrice}}</span>

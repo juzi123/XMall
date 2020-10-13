@@ -216,24 +216,23 @@ app.post('/api/addCart', (req, res) => {
             let newData = result.data.find(item => item.productId == productId);
             newData.limitNum = 100;
 
-            let falg = true;
+            let flag = true;
             if (cartList && cartList.length) {
                 cartList.forEach(item => {
                     if (item.productId == productId) {
                         if (item.productNum >= 1) {
-                            falg = false;
+                            flag = false;
                             item.productNum += parseInt(productNum);
                         }
                     }
                 })
             }
-            if (!cartList.length || falg) { //购物车为空
+            if (!cartList.length || flag) { //购物车为空
                 newData.productNum = parseInt(productNum)
                 cartList.push(newData);
             }
 
             // 序列化
-
             fs.writeFile('./db/cartList.json', JSON.stringify(cartListJSON), (err) => {
                 if (!err) {
                     res.json({
